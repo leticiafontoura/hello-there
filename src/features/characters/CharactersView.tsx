@@ -1,5 +1,5 @@
 import { getCharacters } from './api'
-import PageContainer from '../../shared/components/Page/PageContainer'
+import PageContainer from '../../shared/components/Pages/PageContainer'
 
 function CharactersView() {
   return <PageContainer queryFn={getCharacters} queryKey='characters' />

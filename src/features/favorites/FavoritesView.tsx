@@ -1,4 +1,4 @@
-import PageContainer from '../../shared/components/Page/PageContainer'
+import PageContainer from '../../shared/components/Pages/PageContainer'
 import { getFavorites } from './api'
 
 function FavoritesView() {
