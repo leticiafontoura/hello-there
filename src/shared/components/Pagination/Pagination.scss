@@ -1,0 +1,30 @@
+// @import '../../../colors';
+// @import '../../../sizes';
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+
+  .pagination__button {
+    cursor: pointer;
+  }
+
+  .pagination__button-disabled {
+    cursor: not-allowed;
+  }
+
+  .pagination {
+    font-size: $TextDefault;
+    font-family: 'Rubik', sans-serif;
+    cursor: pointer;
+
+    &.--active {
+      padding: 4px;
+      background-color: $darkOrange;
+      border-radius: 2px;
+    }
+  }
+}

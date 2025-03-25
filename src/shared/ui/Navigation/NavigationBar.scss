@@ -1,0 +1,51 @@
+// @import '../../../colors';
+// @import '../../../sizes';
+
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: $Spacing-2;
+  .main-nav-logo {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc($c-Padding * 3);
+    .main-nav-item {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $white;
+      gap: 10px;
+      span {
+        height: 30px;
+        svg {
+          height: 100%;
+          width: auto;
+        }
+      }
+      &:hover {
+        color: $lightBlue;
+        svg path {
+          color: $lightBlue;
+          fill: currentColor;
+        }
+      }
+      svg path {
+        color: $white;
+        fill: currentColor;
+      }
+      &.active {
+        color: $navy;
+        svg path {
+          color: $navy;
+          fill: currentColor;
+        }
+      }
+    }
+  }
+}

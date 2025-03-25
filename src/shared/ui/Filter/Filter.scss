@@ -1,0 +1,11 @@
+// @use '../../../sizes';
+
+.filter-container {
+  display: flex;
+  padding: $Spacing-2 0;
+  gap: $Spacing-2;
+
+  input {
+    width: 200px;
+  }
+}

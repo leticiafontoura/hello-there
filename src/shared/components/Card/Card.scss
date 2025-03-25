@@ -1,0 +1,59 @@
+// @use '../../../colors';
+// @use '../../../sizes';
+
+.card {
+  border-radius: $c-BorderRadius;
+  width: $c-Width;
+  overflow: hidden;
+
+  .card__header {
+    background-color: $blue;
+    height: 77px;
+    color: $white;
+    padding: $c-Padding;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .card__title {
+      margin: 0;
+      font-size: $TextMedium;
+    }
+  }
+
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $greyBlue;
+    height: calc(250px - 77px);
+    color: $black;
+    padding: $c-Padding;
+    overflow-y: auto;
+
+    ul {
+      padding: 0 0 $c-Padding 0;
+
+      li {
+        word-wrap: break-word;
+        hyphens: auto;
+        span {
+          font-weight: 600;
+        }
+        font-size: $TextDefault;
+      }
+    }
+
+    .more-info-btn {
+      border: 0;
+      background-color: transparent;
+      padding: 0;
+      color: $navy;
+      font-size: 16px;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+}
