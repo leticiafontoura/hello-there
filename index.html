@@ -21,7 +21,7 @@
         console.log(l.search)
         if (l.search[1] === '/' ) {
           window.history.replaceState(null, null,
-              l.pathname.slice(0, -1)
+              l.pathname.slice(0)
           );
         }
       }(window.location))
