@@ -32,6 +32,7 @@ function NavigationBar({ navLinks }: Props) {
         {navLinks.map(({ href, text, icon }) => (
           <li key={href}>
             <NavLink
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               to={href}
               title={text}
               aria-label={`navigate to ${href}`}
