@@ -2,7 +2,7 @@ import { NavLink } from 'react-router'
 import './NavigationBar.scss'
 
 import HelloThereLogo from '../../../assets/svgs/navbar/hello-there.svg?react'
-import LightSaber from '../../../assets/svgs/lightsaber.svg?react'
+import MenuDots from '../../../assets/svgs/menudots.svg?react'
 import { INavigationLinks } from '../Header/Header'
 import { useState } from 'react'
 
@@ -20,7 +20,7 @@ function NavigationBar({ navLinks }: Props) {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label='mobile menu button'
         >
-          <LightSaber />
+          <MenuDots />
         </button>
         <span className='main-nav-logo'>
           <NavLink to='/' title='home' aria-label='navigate to home'>

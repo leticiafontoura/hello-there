@@ -5,9 +5,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row-reverse;
   }
   .mobile-menu {
     display: block;
+
+    svg {
+      height: 30px;
+      circle {
+        color: colors.$orange;
+        fill: currentColor;
+        stroke: colors.$black;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
   .main-nav-logo {
     &:hover {
@@ -18,9 +31,17 @@
     display: none;
     &.nav-open {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      .main-nav-item {
+        width: fit-content;
+        flex-direction: row-reverse;
+        align-items: center;
+        padding: sizes.$Spacing-1 0;
+        svg, span {
+          width: 20px;
+          height: auto;
+        }
+      }
     }
     .main-nav-item {
       display: flex;
@@ -29,28 +50,31 @@
       color: colors.$white;
       gap: 10px;
       span {
-        height: 30px;
+        height: 50px;
         svg {
           height: 100%;
           width: auto;
         }
       }
+      svg path {
+        color: colors.$white;
+        stroke: transparent;
+        fill: currentColor;
+      }
       &:hover {
-        color: colors.$lightBlue;
+        color: colors.$darkOrange;
         svg path {
-          color: colors.$lightBlue;
+          color: colors.$darkOrange;
           fill: currentColor;
         }
       }
-      svg path {
-        color: colors.$white;
-        fill: currentColor;
-      }
       &.active {
-        color: colors.$navy;
+        color: colors.$darkOrange;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         svg path {
-          color: colors.$navy;
+          color: colors.$orange;
           fill: currentColor;
+          stroke: colors.$black;
         }
       }
     }
@@ -65,8 +89,9 @@
     .mobile-menu {
       display: none;
     }
-    ul {
+    ul.nav-open, ul {
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
       gap: sizes.$Spacing-3;

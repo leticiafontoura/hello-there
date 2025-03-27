@@ -12,6 +12,13 @@
     justify-content: space-between;
     align-items: center;
 
+    button img {
+      width: 30px;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
     .card__title {
       margin: 0;
       font-size: sizes.$TextMedium;

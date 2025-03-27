@@ -1,8 +1,8 @@
 import NavigationBar from '../Navigation/NavigationBar'
 import './Header.scss'
-import Characters from '../../../assets/svgs/navbar/characters.svg?react'
-import Planets from '../../../assets/svgs/navbar/tatooine.svg?react'
-import Favorites from '../../../assets/svgs/navbar/favorites.svg?react'
+import Characters from '../../../assets/svgs/navbar/characterOutline.svg?react'
+import Planets from '../../../assets/svgs/navbar/planetOutline.svg?react'
+import Favorites from '../../../assets/svgs/navbar/favoriteOutline.svg?react'
 import { ReactElement } from 'react'
 
 export interface INavigationLinks {

@@ -10,9 +10,13 @@
   align-items: center;
 
   svg {
-    width: 100px;
+    width: 200px;
     animation: opacity 1s linear alternate infinite;
     offset-path: path("M 10 50 L 110 50 Q 80 45 70 40 Q 60 50 30 40");
+    path {
+      color: colors.$white;
+      fill: currentColor;
+    }
   }
 }
 

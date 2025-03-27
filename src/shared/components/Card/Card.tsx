@@ -42,6 +42,7 @@ function Card({ cardTitle, cardDetails }: Props) {
           <img
             alt='favorite icon'
             src={favoriteIcon}
+            title='favorite'
           />
         </button>
       </div>
