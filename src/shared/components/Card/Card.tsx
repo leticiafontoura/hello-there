@@ -5,7 +5,11 @@ import './Card.scss'
 import { useFavorites } from '../../hooks/useFavorites'
 import { Item } from '../../../entities/Items'
 import { NavLink } from 'react-router'
-import { getItemId, splitLocationPathname, transformItemJson } from '../../helpers'
+import {
+  getItemId,
+  splitLocationPathname,
+  transformItemJson,
+} from '../../helpers'
 import ItemsList from '../ItemsList/ItemsList'
 
 interface Props {
@@ -34,7 +38,7 @@ function Card({ cardTitle, cardDetails }: Props) {
     <article className='card' aria-roledescription='card'>
       <div className='card__header'>
         <h2 className='card__title'>{cardTitle}</h2>
-        <button>
+        <button aria-label='favorite button'>
           <img
             alt='favorite icon'
             onClick={() => toggleFavorite(cardDetails)}
@@ -46,7 +50,7 @@ function Card({ cardTitle, cardDetails }: Props) {
         <ul>
           <ItemsList item={transformedCardDetails} />
         </ul>
-        <NavLink className='more-info-btn' to={detailsPath}>
+        <NavLink className='more-info-btn' to={detailsPath} aria-label={`navigate to ${detailsPath}`}>
           + infos
         </NavLink>
       </div>

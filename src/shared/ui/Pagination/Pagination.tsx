@@ -22,7 +22,12 @@ function Pagination({ totalPages, handleCurrentPage, currentPage }: Props) {
 
   return (
     <div className='pagination-container'>
-      <button onClick={() => handleCurrentPage(currentPage - 1)} className='pagination__button' disabled={isPrevBtnDisabled}>
+      <button
+        onClick={() => handleCurrentPage(currentPage - 1)}
+        className='pagination__button'
+        disabled={isPrevBtnDisabled}
+        aria-label='previous page button'
+      >
         <img src={ChevronLeft} aria-label='previous page' alt='previous' />
       </button>
       {pageList.map((page) => (
@@ -37,7 +42,12 @@ function Pagination({ totalPages, handleCurrentPage, currentPage }: Props) {
           {page}
         </span>
       ))}
-      <button onClick={() => handleCurrentPage(currentPage + 1)} className='pagination__button' disabled={isNextBtnDisabled}>
+      <button
+        onClick={() => handleCurrentPage(currentPage + 1)}
+        className='pagination__button'
+        disabled={isNextBtnDisabled}
+        aria-label='next page button'
+      >
         <img src={ChevronRight} aria-label='next page' alt='next' />
       </button>
     </div>

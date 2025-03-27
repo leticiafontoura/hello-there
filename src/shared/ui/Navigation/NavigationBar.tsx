@@ -18,11 +18,12 @@ function NavigationBar({ navLinks }: Props) {
         <button
           className='mobile-menu'
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label='mobile menu button'
         >
           <LightSaber />
         </button>
         <span className='main-nav-logo'>
-          <NavLink to='/' title='home'>
+          <NavLink to='/' title='home' aria-label='navigate to home'>
             <HelloThereLogo height={45} aria-label='hello there logo' />
           </NavLink>
         </span>
@@ -33,6 +34,7 @@ function NavigationBar({ navLinks }: Props) {
             <NavLink
               to={href}
               title={text}
+              aria-label={`navigate to ${href}`}
               className={({ isActive }) =>
                 `main-nav-item ${isActive ? 'active' : ''}`
               }

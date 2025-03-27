@@ -57,6 +57,7 @@ function Breadcrumbs() {
           <>
             <li key={index}>
               <NavLink
+                aria-label={`navigate to ${item.to}`}
                 to={item.to}
                 end
                 className={`breadcrumb-item ${item.id ? 'active' : ''}`}
