@@ -5,7 +5,7 @@ import svgr from 'vite-plugin-svgr'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/hello-there',
+  base: '/hello-there/',
   plugins: [react(), svgr()],
   resolve: {
     alias: {
