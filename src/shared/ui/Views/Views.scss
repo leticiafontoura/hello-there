@@ -1,19 +1,19 @@
 .empty-search, .error-search {
   text-align: center;
-  padding: $Spacing-3;
+  padding: sizes.$Spacing-3;
   height: 70%;
 
   h1 {
-    font-size: $TextLarge;
+    font-size: sizes.$TextLarge;
   }
   h2 {
-    font-size: $TextMedium;
+    font-size: sizes.$TextMedium;
   }
   svg {
     width: 100px;
     height: auto;
     path {
-      color: $white;
+      color: colors.$white;
       fill: currentColor;
     }
   }

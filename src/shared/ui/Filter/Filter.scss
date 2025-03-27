@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  gap: $Spacing-1;
+  gap: sizes.$Spacing-1;
 
   input {
     width: 200px;

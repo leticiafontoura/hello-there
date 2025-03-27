@@ -2,8 +2,8 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: $Spacing-2;
-  padding: $Spacing-2;
+  gap: sizes.$Spacing-2;
+  padding: sizes.$Spacing-2;
   max-height: 65%;
   overflow-y: scroll;
   justify-content: center;

@@ -1,25 +1,25 @@
 .breadcrumbs {
-  padding: $Spacing-2;
+  padding: sizes.$Spacing-2;
 
   ul {
     display: flex;
     align-items: center;
-    gap: $Spacing-2;
+    gap: sizes.$Spacing-2;
 
     span, svg {
-      height: $Spacing-2;
+      height: sizes.$Spacing-2;
     }
 
     .breadcrumb-item {
       text-decoration: none;
-      color: $teal;
+      color: colors.$teal;
 
       &.active {
         text-decoration: underline;
       }
 
       &:hover {
-        color: $lightBlue;
+        color: colors.$lightBlue;
       }
     }
   }

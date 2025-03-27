@@ -1,6 +1,6 @@
 .main-nav {
   display: block;
-  padding: $Spacing-2;
+  padding: sizes.$Spacing-2;
   .logo-area {
     display: flex;
     justify-content: space-between;
@@ -26,7 +26,7 @@
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: $white;
+      color: colors.$white;
       gap: 10px;
       span {
         height: 30px;
@@ -36,20 +36,20 @@
         }
       }
       &:hover {
-        color: $lightBlue;
+        color: colors.$lightBlue;
         svg path {
-          color: $lightBlue;
+          color: colors.$lightBlue;
           fill: currentColor;
         }
       }
       svg path {
-        color: $white;
+        color: colors.$white;
         fill: currentColor;
       }
       &.active {
-        color: $navy;
+        color: colors.$navy;
         svg path {
-          color: $navy;
+          color: colors.$navy;
           fill: currentColor;
         }
       }
@@ -61,7 +61,7 @@
   .main-nav {
     display: flex;
     justify-content: space-around;
-    padding: $Spacing-2;
+    padding: sizes.$Spacing-2;
     .mobile-menu {
       display: none;
     }
@@ -69,7 +69,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: $Spacing-3;
+      gap: sizes.$Spacing-3;
     }
   }
 }

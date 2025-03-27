@@ -14,13 +14,13 @@
 
 
   .pagination {
-    font-size: $TextDefault;
+    font-size: sizes.$TextDefault;
     font-family: 'Rubik', sans-serif;
     cursor: pointer;
 
     &.--active {
       padding: 4px;
-      background-color: $darkOrange;
+      background-color: colors.$darkOrange;
       border-radius: 2px;
     }
   }

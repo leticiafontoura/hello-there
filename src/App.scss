@@ -6,8 +6,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: $white;
-  background-color: $black;
+  color: colors.$white;
+  background-color: colors.$black;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -63,18 +63,18 @@ ul {
   font-family: 'Comic Neue', cursive;
   width: 100%;
   margin: 0 auto;
-  color: $darkOrange;
+  color: colors.$darkOrange;
   overflow-y: visible;
   article {
     height: 70dvh;
     overflow-y: auto;
   }
   li {
-    padding-left: $Spacing-3;
+    padding-left: sizes.$Spacing-3;
   }
   p, li {
     font-weight: 600;
-    margin: $Spacing-2;
+    margin: sizes.$Spacing-2;
   }
   h1 {
     text-align: center;

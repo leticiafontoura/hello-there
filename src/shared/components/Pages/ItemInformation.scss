@@ -7,26 +7,26 @@
 .item-information__container {
   margin: 0 auto;
   width: auto;
-  border-radius: $c-BorderRadius;
-  padding: $Spacing-2;
+  border-radius: sizes.$c-BorderRadius;
+  padding: sizes.$Spacing-2;
   overflow-y: auto;
   height: 100%;
   
   li {
-    padding: $Spacing-1 0;
+    padding: sizes.$Spacing-1 0;
   }
 
   span {
-    color: $darkOrange;
+    color: colors.$darkOrange;
     font-weight: 500;
   }
   p {
-    margin-left: $Spacing-1;
+    margin-left: sizes.$Spacing-1;
 
     a {
-      color: $teal;
+      color: colors.$teal;
       &:hover {
-        color: $lightBlue;
+        color: colors.$lightBlue;
       }
     }
   }
