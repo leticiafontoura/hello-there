@@ -4,7 +4,6 @@ import { normalizeString } from '../../shared/helpers'
 export function getFavorites(query?: string): Promise<ApiReturn> {
   return new Promise((resolve) => {
     const data = localStorage.getItem('favorites')
-    console.log(data)
     const parsed: Array<Item> = JSON.parse(data || '[]')
     if (query) {
       const filtered = parsed.filter((option) =>

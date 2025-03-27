@@ -6,7 +6,7 @@ function EmptySearch() {
     <article className="empty-search">
       <LightSaber  />
       <h1>Oops!</h1>
-      <h2>Não encontramos nada com o termo pesquisado :(</h2>
+      <h2>Nada por aqui, hein.</h2>
     </article>
   )
 }

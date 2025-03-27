@@ -40,7 +40,6 @@ function CardFeatureContainer({ queryFn, queryKey, hasSubset }: Props) {
   useEffect(() => {
     if (container && container.current) {
       const cardContainer = container.current.querySelector('.card-container')
-      console.log(cardContainer)
       if (cardContainer) cardContainer.scrollTo({
         top: 0
       })

@@ -4,16 +4,12 @@ import { Item } from '../../entities/Items'
 export function useFavorites(cardTitle: string) {
   const STORAGE_KEY = 'favorites'
 
-  const storedFavorites = localStorage.getItem(STORAGE_KEY)
-
   const [currentFavorites, setCurrentFavorites] = useState<Array<Item>>(() =>
     JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
   )
 
   useEffect(() => {
-    if (storedFavorites?.length) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(currentFavorites))
-    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(currentFavorites))
   }, [currentFavorites])
 
   const isFavorite = !!currentFavorites.filter(

@@ -38,10 +38,9 @@ function Card({ cardTitle, cardDetails }: Props) {
     <article className='card' aria-roledescription='card'>
       <div className='card__header'>
         <h2 className='card__title'>{cardTitle}</h2>
-        <button aria-label='favorite button'>
+        <button aria-label='favorite button' onClick={() => toggleFavorite(cardDetails)}>
           <img
             alt='favorite icon'
-            onClick={() => toggleFavorite(cardDetails)}
             src={favoriteIcon}
           />
         </button>
