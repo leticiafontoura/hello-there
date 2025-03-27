@@ -24,16 +24,3 @@
     offset-distance: 100%;
   }
 }
-
-.page-container {
-  .empty-search, .error-search {
-    text-align: center;
-    svg {
-      width: 200px;
-      height: auto;
-      path {
-        fill: currentColor;
-      }
-    }
-  }
-}

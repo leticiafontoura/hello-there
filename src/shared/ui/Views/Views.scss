@@ -1,0 +1,20 @@
+.empty-search, .error-search {
+  text-align: center;
+  padding: $Spacing-3;
+  height: 70%;
+
+  h1 {
+    font-size: $TextLarge;
+  }
+  h2 {
+    font-size: $TextMedium;
+  }
+  svg {
+    width: 200px;
+    height: auto;
+    path {
+      color: $white;
+      fill: currentColor;
+    }
+  }
+}

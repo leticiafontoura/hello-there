@@ -1,8 +1,14 @@
-import PageContainer from '../../shared/components/Pages/PageContainer'
+import CardFeatureContainer from '../../shared/components/Pages/CardFeatureContainer'
 import { getFavorites } from './api'
 
 function FavoritesView() {
-  return <PageContainer queryFn={getFavorites} queryKey='favorites' hasSubset />
+  return (
+    <CardFeatureContainer
+      queryFn={getFavorites}
+      queryKey='favorites'
+      hasSubset
+    />
+  )
 }
 
 export default FavoritesView

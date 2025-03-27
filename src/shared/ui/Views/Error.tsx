@@ -1,4 +1,5 @@
 import DarthVader from '../../../assets/svgs/darth-vader.svg?react'
+import './Views.scss'
 
 function ErrorView() {
   return (

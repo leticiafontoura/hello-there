@@ -1,8 +1,8 @@
 import { getPlanetsList } from './api'
-import PageContainer from '../../shared/components/Pages/PageContainer'
+import CardFeatureContainer from '../../shared/components/Pages/CardFeatureContainer'
 
 function PlanetsView() {
-  return <PageContainer queryFn={getPlanetsList} queryKey='planets' />
+  return <CardFeatureContainer queryFn={getPlanetsList} queryKey='planets' />
 }
 
 export default PlanetsView

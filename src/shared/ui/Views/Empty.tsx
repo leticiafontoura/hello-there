@@ -1,4 +1,5 @@
 import LightSaber from '../../../assets/svgs/lightsaber.svg?react'
+import './Views.scss'
 
 function EmptySearch() {
   return (

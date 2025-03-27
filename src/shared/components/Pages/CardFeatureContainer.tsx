@@ -3,7 +3,7 @@ import { useCardList } from '../../hooks/useCardList'
 import CardContainer from '../../ui/CardContainer/CardContainer'
 import SearchWordFilter from '../../ui/Filter/Filter'
 import Pagination from '../../ui/Pagination/Pagination'
-import './PageContainer.scss'
+import './CardFeatureContainer.scss'
 import EmptySearch from '../../ui/Views/Empty'
 import ErrorView from '../../ui/Views/Error'
 import LoadingScreen from '../../ui/Views/LoadingScreen'
@@ -19,7 +19,7 @@ interface Props {
   hasSubset?: boolean
 }
 
-function PageContainer({ queryFn, queryKey, hasSubset }: Props) {
+function CardFeatureContainer({ queryFn, queryKey, hasSubset }: Props) {
   const {
     setSearchQuery,
     isLoading,
@@ -38,7 +38,7 @@ function PageContainer({ queryFn, queryKey, hasSubset }: Props) {
   if (isError) return <ErrorView />
 
   return (
-    <section className='page-container'>
+    <section className='card-feature-container'>
       {isLoading ? <LoadingScreen /> : null}
       <SearchWordFilter handleSearchWord={setSearchQuery} />
       {!items.length && isSuccess ? <EmptySearch /> : null}
@@ -56,4 +56,4 @@ function PageContainer({ queryFn, queryKey, hasSubset }: Props) {
   )
 }
 
-export default PageContainer
+export default CardFeatureContainer
