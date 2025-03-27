@@ -7,7 +7,7 @@ interface Props {
 function SearchWordFilter({ handleSearchWord }: Props) {
   return (
     <div className='filter-container'>
-      <label htmlFor='search-word'>Pesquisar por nome:</label>
+      <label htmlFor='search-word' aria-label='pesquisar por nome'>Pesquisar por nome:</label>
       <input
         onChange={(e) => {
           handleSearchWord(e.target.value)
@@ -15,6 +15,7 @@ function SearchWordFilter({ handleSearchWord }: Props) {
         name='search-word'
         id='search-word'
         placeholder='Digite 3 ou mais caracteres'
+        aria-placeholder='Digite 3 ou mais caracteres'
       />
     </div>
   )

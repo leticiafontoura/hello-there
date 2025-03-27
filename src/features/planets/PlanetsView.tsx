@@ -1,8 +1,8 @@
-import { getPlanets } from './api'
+import { getPlanetsList } from './api'
 import PageContainer from '../../shared/components/Pages/PageContainer'
 
 function PlanetsView() {
-  return <PageContainer queryFn={getPlanets} queryKey='planets' />
+  return <PageContainer queryFn={getPlanetsList} queryKey='planets' />
 }
 
 export default PlanetsView

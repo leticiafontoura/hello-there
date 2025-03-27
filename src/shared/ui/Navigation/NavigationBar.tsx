@@ -2,31 +2,32 @@ import { NavLink } from 'react-router'
 import './NavigationBar.scss'
 
 import HelloThereLogo from '../../../assets/svgs/navbar/hello-there.svg?react'
-import { NavigationLinks } from '../../entities/Navigation'
+import { INavigationLinks } from '../Header/Header'
 
 interface Props {
-  navLinks: Array<NavigationLinks>
+  navLinks: Array<INavigationLinks>
 }
 
 function NavigationBar({ navLinks }: Props) {
   return (
     <nav className='main-nav'>
       <span className='main-nav-logo'>
-        <NavLink to='/' title='logo'>
-          <HelloThereLogo height={45} />
+        <NavLink to='/' title='home'>
+          <HelloThereLogo height={45} aria-label='hello there logo' />
         </NavLink>
       </span>
       <ul>
-        {navLinks.map((navLink) => (
-          <li key={navLink.href}>
+        {navLinks.map(({ href, text, icon }) => (
+          <li key={href}>
             <NavLink
-              to={navLink.href}
+              to={href}
+              title={text}
               className={({ isActive }) =>
                 `main-nav-item ${isActive ? 'active' : ''}`
               }
             >
-              {navLink.text}
-              <span>{navLink.icon}</span>
+              {text}
+              <span>{icon}</span>
             </NavLink>
           </li>
         ))}

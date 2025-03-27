@@ -26,14 +26,21 @@
     height: calc(250px - 77px);
     color: $black;
     padding: $c-Padding;
-    overflow-y: auto;
 
     ul {
       padding: 0 0 $c-Padding 0;
+      overflow-y: scroll;
 
       li {
         word-wrap: break-word;
         hyphens: auto;
+        a {
+          color: $teal;
+
+          &:hover {
+            color: $blue; 
+          }
+        }
         span {
           font-weight: 600;
         }
@@ -47,6 +54,7 @@
       padding: 0;
       color: $navy;
       font-size: 16px;
+      text-align: center;
 
       &:hover {
         color: $blue;

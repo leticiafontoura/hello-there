@@ -1,4 +1,5 @@
-import { ApiReturn, Item } from '../../shared/entities/Card'
+import { ApiReturn, Item } from '../../shared/entities/Items'
+import { normalizeString } from '../../shared/helpers'
 
 export function getFavorites(query?: string): Promise<ApiReturn> {
   return new Promise((resolve) => {
@@ -19,22 +20,4 @@ export function getFavorites(query?: string): Promise<ApiReturn> {
       count: parsed.length,
     })
   })
-}
-
-export function splitArrayIntoSubsets(arr?: Array<Item>, subsetSize = 10) {
-  const result = []
-  if (arr) {
-    for (let i = 0; i < arr.length; i += subsetSize) {
-      result.push(arr.slice(i, i + subsetSize))
-    }
-  }
-  return result
-}
-
-export function normalizeString(string: string) {
-  return string.normalize('NFD').toLowerCase()
-}
-
-export function compareStrings(string1: string, string2: string) {
-  return normalizeString(string1) === normalizeString(string2)
 }

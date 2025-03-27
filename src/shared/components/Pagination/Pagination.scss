@@ -7,11 +7,11 @@
 
   .pagination__button {
     cursor: pointer;
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
-  .pagination__button-disabled {
-    cursor: not-allowed;
-  }
 
   .pagination {
     font-size: $TextDefault;

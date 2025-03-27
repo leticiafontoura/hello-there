@@ -1,47 +1,54 @@
-import { useState } from 'react'
 import SelectedFavoriteIcon from '../../../assets/svgs/favoriteIconFull.svg'
 import UnselectedFavoriteIcon from '../../../assets/svgs/favoriteIconOutline.svg'
 
 import './Card.scss'
 import { useFavorites } from '../../hooks/useFavorites'
-import { Item } from '../../entities/Card'
+import { Item } from '../../entities/Items'
+import { NavLink, useLocation } from 'react-router'
+import { getItemId, transformItemJson } from '../../helpers'
+import ItemsList from '../../ui/ItemsList/ItemsList'
 
 interface Props {
   cardTitle: string
   cardDetails: Item
 }
 
+export function urlLocation(item: string) {
+  if (item) {
+    const url = item.split('/').splice(-3, 1)
+    return url[0]
+  }
+}
+
 function Card({ cardTitle, cardDetails }: Props) {
-  const [loadAll, setLoadAll] = useState(false)
-  const cardInfo = loadAll
-    ? Object.entries(cardDetails)
-    : Object.entries(cardDetails)?.slice(0, 4)
+  const { pathname } = useLocation()
+  const transformedCardDetails = transformItemJson(cardDetails)
+  const id = getItemId(cardDetails.url)
   const { isFavorite, toggleFavorite } = useFavorites(cardTitle)
+  const favoriteIcon = isFavorite
+    ? SelectedFavoriteIcon
+    : UnselectedFavoriteIcon
+  const detailsPath = `${pathname}/${id}/`
+
   return (
-    <article className='card'>
+    <article className='card' aria-roledescription='card'>
       <div className='card__header'>
         <h2 className='card__title'>{cardTitle}</h2>
-        <img
-          alt='favorite icon'
-          onClick={() => toggleFavorite(cardDetails)}
-          src={isFavorite ? SelectedFavoriteIcon : UnselectedFavoriteIcon}
-        />
+        <button>
+          <img
+            alt='favorite icon'
+            onClick={() => toggleFavorite(cardDetails)}
+            src={favoriteIcon}
+          />
+        </button>
       </div>
       <div className='card__body'>
         <ul>
-          {cardInfo.map(([key, value]) => (
-            <li key={key}>
-              <span>{key}:</span> {value}
-            </li>
-          ))}
+          <ItemsList item={transformedCardDetails} />
         </ul>
-        <button
-          className='more-info-btn'
-          aria-label='mais informações sobre o card'
-          onClick={() => setLoadAll(!loadAll)}
-        >
-          {!loadAll ? '+' : '- '} infos
-        </button>
+        <NavLink className='more-info-btn' to={detailsPath}>
+          + infos
+        </NavLink>
       </div>
     </article>
   )

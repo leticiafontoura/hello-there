@@ -26,7 +26,7 @@ h1, h2 {
   font-weight: 500;
 }
 
-body {
+body, p {
   margin: 0;
 }
 
@@ -34,6 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/src/assets/images/background.webp');
 }
 
 ul {
