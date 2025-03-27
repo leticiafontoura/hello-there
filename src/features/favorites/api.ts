@@ -6,12 +6,11 @@ export function getFavorites(query?: string): Promise<ApiReturn> {
     const data = localStorage.getItem('favorites')
     console.log(data)
     const parsed: Array<Item> = JSON.parse(data || '[]')
-    let apiReturn = {}
     if (query) {
       const filtered = parsed.filter((option) =>
         normalizeString(option.name).includes(normalizeString(query))
       )
-      resolve(apiReturn = {
+      resolve({
         results: filtered,
         count: filtered.length,
       })
