@@ -1,13 +1,17 @@
-import { ApiReturn } from '../../entities/Card'
-import { useListing } from '../../hooks/useListing'
+import { ApiReturn } from '../../entities/Items'
+import { useCardList } from '../../hooks/useCardList'
 import CardContainer from '../../ui/CardContainer/CardContainer'
 import SearchWordFilter from '../../ui/Filter/Filter'
 import Pagination from '../Pagination/Pagination'
-import Loader from '../../../assets/svgs/favoriteIconOutline.svg?react'
 import './PageContainer.scss'
-import { splitArrayIntoSubsets } from '../../../features/favorites/api'
 import EmptySearch from './Empty'
 import ErrorView from './Error'
+import LoadingScreen from '../../ui/LoadingScreen'
+import { splitArrayIntoSubsets } from '../../helpers'
+
+/**
+ * @hasSubset to handle favorites as they're not split into chunks of 10
+ */
 
 interface Props {
   queryFn: (query?: string) => Promise<ApiReturn>
@@ -17,41 +21,38 @@ interface Props {
 
 function PageContainer({ queryFn, queryKey, hasSubset }: Props) {
   const {
-    setQuery,
+    setSearchQuery,
     isLoading,
     items,
     currentPage,
     setCurrentPage,
-    totalPg,
+    totalPages,
     isSuccess,
     isError,
-  } = useListing({ queryFn, queryKey })
+  } = useCardList({ queryFn, queryKey })
 
-  const withSubset = hasSubset ? splitArrayIntoSubsets(items) : []
+  const paginatedData = hasSubset
+    ? splitArrayIntoSubsets(items)[currentPage - 1]
+    : items
+
+  if (isLoading) return <LoadingScreen />
+  if (isError) return <ErrorView />
 
   return (
-    <div className='page-container'>
-      {isLoading ? (
-        <div className='page-container__backdrop-loading'>
-          <Loader />
-        </div>
-      ) : null}
-      <SearchWordFilter handleSearchWord={setQuery} />
+    <section className='page-container'>
+      <SearchWordFilter handleSearchWord={setSearchQuery} />
       {!items.length && isSuccess ? <EmptySearch /> : null}
-      {items.length ? (
+      {!!items.length ? (
         <>
-          <CardContainer
-            data={hasSubset ? withSubset[currentPage - 1] : items}
-          />
+          <CardContainer data={paginatedData} />
           <Pagination
-            totalPgs={totalPg}
+            totalPages={totalPages}
             handleCurrentPage={setCurrentPage}
             currentPage={currentPage}
           />
         </>
       ) : null}
-      {isError ? <ErrorView /> : null}
-    </div>
+    </section>
   )
 }
 

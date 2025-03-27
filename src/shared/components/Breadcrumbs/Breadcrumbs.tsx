@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router'
 import { capitalizeFirstChar, splitLocationPathname } from '../../helpers'
 import ChevronRight from '../../../assets/svgs/chevronRight.svg?react'
 import './Breadcrumbs.scss'
-import { Item } from '../../entities/Card'
+import { Item } from '../../entities/Items'
 import { useEffect, useState } from 'react'
 
 function Breadcrumbs() {
@@ -14,16 +14,16 @@ function Breadcrumbs() {
 
   const id = splittedPathname[1]
 
-  const [currentLocation, setCurrentLocation] = useState<Item | null>(null)
+  const [cachedData, setCachedData] = useState<Item | null>(null)
 
   useEffect(() => {
     const data = queryClient.getQueryData<Item>(queryKey)
-    if (data) setCurrentLocation(data)
+    if (data) setCachedData(data)
 
     const unsubscribe = queryClient.getQueryCache().subscribe(() => {
       const updatedData = queryClient.getQueryData<Item>(queryKey)
       if (updatedData) {
-        setCurrentLocation(updatedData)
+        setCachedData(updatedData)
       }
     })
     return () => unsubscribe()
@@ -42,8 +42,8 @@ function Breadcrumbs() {
     },
     {
       name:
-        currentLocation?.name && splittedPathname.length === 2
-          ? currentLocation.name
+        cachedData?.name && splittedPathname.length === 2
+          ? cachedData.name
           : '',
       to: `/${splittedPathname[0]}/${id}`,
       id,

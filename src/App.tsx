@@ -3,15 +3,25 @@ import { BrowserRouter } from 'react-router'
 import Header from './shared/ui/Header/Header'
 import RoutesComponent from './Routes'
 import './App.scss'
+import Breadcrumbs from './shared/components/Breadcrumbs/Breadcrumbs'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false
+    }
+  }
+})
 
 function App() {
-  const queryClient = new QueryClient()
-
   return (
     <>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Header />
+          <Breadcrumbs />
           <RoutesComponent />
         </BrowserRouter>
       </QueryClientProvider>

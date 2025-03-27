@@ -1,16 +1,16 @@
 import { apiClient } from '../../api/apiClient'
-import { ApiReturn } from '../../shared/entities/Card'
+import { ApiReturn } from '../../shared/entities/Items'
 
-export const getCharacters = async (
+export const getCharactersList = async (
   query?: string,
   page?: number
 ): Promise<ApiReturn> => {
-  let url = '/pewople'
+  let url = '/people'
 
   if (query) {
-    url = `peoplewqe/?search=${query}`
+    url = `people/?search=${query}`
   } else if (page) {
-    url = `peopeqle/?page=${page}`
+    url = `people/?page=${page}`
   }
   const { data } = await apiClient.get(url)
   return data

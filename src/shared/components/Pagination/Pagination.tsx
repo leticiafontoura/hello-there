@@ -3,52 +3,43 @@ import ChevronRight from '../../../assets/svgs/chevronRight.svg'
 import './Pagination.scss'
 
 interface Props {
-  totalPgs: number
+  totalPages: number
   handleCurrentPage: (currentPage: number) => void
   currentPage: number
 }
 
-function Pagination({ totalPgs, handleCurrentPage, currentPage }: Props) {
-  const pageList = Array.from({ length: totalPgs }, (_, number) => number + 1)
-  const isPrevDisabled = currentPage <= 1
-  const isNextDisabled = currentPage >= totalPgs
+function Pagination({ totalPages, handleCurrentPage, currentPage }: Props) {
+  const pageList = Array.from({ length: totalPages }, (_, number) => number + 1)
+  const isPrevBtnDisabled = currentPage <= 1
+  const isNextBtnDisabled = currentPage >= totalPages
+
   function handleActivePage(page: number) {
     if (page === currentPage) return ' --active'
     return ''
   }
 
-  if (!totalPgs) return null
+  if (!totalPages) return null
 
   return (
     <div className='pagination-container'>
-      <img
-        role='button'
-        src={ChevronLeft}
-        onClick={() =>
-          isPrevDisabled ? {} : handleCurrentPage(currentPage - 1)
-        }
-        className={
-          isPrevDisabled ? 'pagination__button-disabled' : 'pagination__button'
-        }
-      />
+      <button onClick={() => handleCurrentPage(currentPage - 1)} className='pagination__button' disabled={isPrevBtnDisabled}>
+        <img src={ChevronLeft} aria-label='previous page' alt='previous' />
+      </button>
       {pageList.map((page) => (
         <span
           className={`pagination${handleActivePage(page)}`}
           onClick={() => handleCurrentPage(page)}
+          key={page}
+          role='button'
+          tabIndex={0}
+          aria-label={`go to page ${page}`}
         >
           {page}
         </span>
       ))}
-      <img
-        role='button'
-        src={ChevronRight}
-        onClick={() =>
-          isNextDisabled ? {} : handleCurrentPage(currentPage + 1)
-        }
-        className={
-          isNextDisabled ? 'pagination__button-disabled' : 'pagination__button'
-        }
-      />
+      <button onClick={() => handleCurrentPage(currentPage + 1)} className='pagination__button' disabled={isNextBtnDisabled}>
+        <img src={ChevronRight} aria-label='next page' alt='next' />
+      </button>
     </div>
   )
 }

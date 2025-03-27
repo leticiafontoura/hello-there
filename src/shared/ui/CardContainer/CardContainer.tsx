@@ -1,4 +1,4 @@
-import { Item } from '../../entities/Card'
+import { Item } from '../../entities/Items'
 import Card from '../../components/Card/Card'
 import './CardContainer.scss'
 
@@ -9,7 +9,7 @@ interface Props {
 function CardContainer({ data }: Props) {
   return (
     <section className='card-container'>
-      {data?.map((info) => <Card cardTitle={info.name} cardDetails={info} />)}
+      {data.map((info, index) => <Card key={index} cardTitle={info.name} cardDetails={info} />)}
     </section>
   )
 }

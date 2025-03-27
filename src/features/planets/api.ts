@@ -1,6 +1,6 @@
 import { apiClient } from '../../api/apiClient'
 
-export const getPlanets = async (query?: string, page?: number) => {
+export const getPlanetsList = async (query?: string, page?: number) => {
   let url = '/planets'
   if (query) {
     url = `planets/?search=${query}`
