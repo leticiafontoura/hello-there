@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="refresh" content="0; url=./index.html" />
     <script type="text/javascript">
-      window.location.replace("/hello-there/");
+      // Manter o caminho após /hello-there/
+      const path = window.location.pathname.replace('/hello-there', '');
+      window.location.replace(`/hello-there${path}`);
     </script>
   </head>
   <body></body>
