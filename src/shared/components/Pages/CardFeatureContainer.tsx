@@ -8,6 +8,8 @@ import EmptySearch from '../../ui/Views/Empty'
 import ErrorView from '../../ui/Views/Error'
 import LoadingScreen from '../../ui/Views/LoadingScreen'
 import { splitArrayIntoSubsets } from '../../helpers'
+import { useEffect, useRef } from 'react'
+import { useQueryClient } from '@tanstack/react-query'
 
 /**
  * @hasSubset to handle favorites as they're not split into chunks of 10
@@ -20,6 +22,10 @@ interface Props {
 }
 
 function CardFeatureContainer({ queryFn, queryKey, hasSubset }: Props) {
+
+  const isFavorite = queryKey === 'favorites'
+  const container = useRef<HTMLElement | null>(null)
+
   const {
     setSearchQuery,
     isLoading,
@@ -31,6 +37,24 @@ function CardFeatureContainer({ queryFn, queryKey, hasSubset }: Props) {
     isError,
   } = useCardList({ queryFn, queryKey })
 
+  useEffect(() => {
+    if (container && container.current) {
+      const cardContainer = container.current.querySelector('.card-container')
+      console.log(cardContainer)
+      if (cardContainer) cardContainer.scrollTo({
+        top: 0
+      })
+    }
+  }, [currentPage])
+
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    if (isFavorite) {
+      queryClient.invalidateQueries({ queryKey: [queryKey] })
+    }
+  }, [isFavorite, queryClient, queryKey, currentPage])
+
   const paginatedData = hasSubset
     ? splitArrayIntoSubsets(items)[currentPage - 1]
     : items
@@ -38,7 +62,7 @@ function CardFeatureContainer({ queryFn, queryKey, hasSubset }: Props) {
   if (isError) return <ErrorView />
 
   return (
-    <section className='card-feature-container'>
+    <section className='card-feature-container' ref={container}>
       {isLoading ? <LoadingScreen /> : null}
       <SearchWordFilter handleSearchWord={setSearchQuery} />
       {!items.length && isSuccess ? <EmptySearch /> : null}

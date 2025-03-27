@@ -4,8 +4,8 @@ import UnselectedFavoriteIcon from '../../../assets/svgs/favoriteIconOutline.svg
 import './Card.scss'
 import { useFavorites } from '../../hooks/useFavorites'
 import { Item } from '../../../entities/Items'
-import { NavLink, useLocation } from 'react-router'
-import { getItemId, transformItemJson } from '../../helpers'
+import { NavLink } from 'react-router'
+import { getItemId, splitLocationPathname, transformItemJson } from '../../helpers'
 import ItemsList from '../ItemsList/ItemsList'
 
 interface Props {
@@ -21,14 +21,14 @@ export function urlLocation(item: string) {
 }
 
 function Card({ cardTitle, cardDetails }: Props) {
-  const { pathname } = useLocation()
+  const pathname = splitLocationPathname(cardDetails.url).slice(-2, -1)[0]
   const transformedCardDetails = transformItemJson(cardDetails)
   const id = getItemId(cardDetails.url)
   const { isFavorite, toggleFavorite } = useFavorites(cardTitle)
   const favoriteIcon = isFavorite
     ? SelectedFavoriteIcon
     : UnselectedFavoriteIcon
-  const detailsPath = `${pathname}/${id}/`
+  const detailsPath = `/${pathname}/${id}/`
 
   return (
     <article className='card' aria-roledescription='card'>

@@ -9,7 +9,7 @@ export function handleHyperlink(item: Array<IHyperlink>, isLoading: boolean) {
   if (isLoading) return <p>Carregando informações...</p>
   if (item.length) {
     return item.map((it) => (
-      <p>
+      <p key={it.name}>
         <NavLink to={it.url}>{it.name}</NavLink>
       </p>
     ))
