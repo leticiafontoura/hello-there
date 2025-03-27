@@ -23,7 +23,7 @@ function NavigationBar({ navLinks }: Props) {
           <LightSaber />
         </button>
         <span className='main-nav-logo'>
-          <NavLink to='/hello-there' title='home' aria-label='navigate to home'>
+          <NavLink to='/' title='home' aria-label='navigate to home'>
             <HelloThereLogo height={45} aria-label='hello there logo' />
           </NavLink>
         </span>

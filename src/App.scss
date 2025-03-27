@@ -1,6 +1,4 @@
-// @use './colors';
-// @use './sizes';
-@import 'https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap';
 
 :root {
   font-family: 'Rubik', sans-serif;
@@ -38,7 +36,8 @@ button {
   padding: 0;
   text-align: left;
   text-decoration: none;
-  text-indent: 0
+  text-indent: 0;
+  cursor: pointer;
 }
 
 #root {
@@ -54,12 +53,39 @@ ul {
   padding: 0;
 }
 
-.card-feature-container, .home-page {
+.main-container {
   flex: 1;
   overflow-y: auto;
   padding: 0 16px;
 }
 
 .home-page {
-  text-align: center;
+  font-family: 'Comic Neue', cursive;
+  width: 100%;
+  margin: 0 auto;
+  color: $darkOrange;
+  overflow-y: visible;
+  article {
+    height: 70dvh;
+    overflow-y: auto;
+  }
+  li {
+    padding-left: $Spacing-3;
+  }
+  p, li {
+    font-weight: 600;
+    margin: $Spacing-2;
+  }
+  h1 {
+    text-align: center;
+  }
+  img {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-page {
+    width: 60%;
+  }
 }

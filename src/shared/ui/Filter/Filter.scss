@@ -1,7 +1,8 @@
 .filter-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  padding: $Spacing-2 0;
+  gap: $Spacing-1;
 
   input {
     width: 200px;
@@ -10,7 +11,6 @@
 
 @media screen and (min-width: 768px) {
   .filter-container {
-    display: flex;
-    gap: $Spacing-2;
+    flex-direction: row;
   }
 }

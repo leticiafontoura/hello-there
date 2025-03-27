@@ -62,7 +62,7 @@ function CardFeatureContainer({ queryFn, queryKey, hasSubset }: Props) {
   if (isError) return <ErrorView />
 
   return (
-    <section className='card-feature-container' ref={container}>
+    <main className='main-container card-feature-container' ref={container}>
       {isLoading ? <LoadingScreen /> : null}
       <SearchWordFilter handleSearchWord={setSearchQuery} />
       {!items.length && isSuccess ? <EmptySearch /> : null}
@@ -76,7 +76,7 @@ function CardFeatureContainer({ queryFn, queryKey, hasSubset }: Props) {
           />
         </>
       ) : null}
-    </section>
+    </main>
   )
 }
 
