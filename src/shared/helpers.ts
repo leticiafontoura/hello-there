@@ -1,4 +1,4 @@
-import { Item } from './entities/Items'
+import { Item } from '../entities/Items'
 
 export function getItemId(itemUrl: string) {
   if (itemUrl) {

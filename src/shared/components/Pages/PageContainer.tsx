@@ -1,12 +1,12 @@
-import { ApiReturn } from '../../entities/Items'
+import { ApiReturn } from '../../../entities/Items'
 import { useCardList } from '../../hooks/useCardList'
 import CardContainer from '../../ui/CardContainer/CardContainer'
 import SearchWordFilter from '../../ui/Filter/Filter'
-import Pagination from '../Pagination/Pagination'
+import Pagination from '../../ui/Pagination/Pagination'
 import './PageContainer.scss'
-import EmptySearch from './Empty'
-import ErrorView from './Error'
-import LoadingScreen from '../../ui/LoadingScreen'
+import EmptySearch from '../../ui/Views/Empty'
+import ErrorView from '../../ui/Views/Error'
+import LoadingScreen from '../../ui/Views/LoadingScreen'
 import { splitArrayIntoSubsets } from '../../helpers'
 
 /**
@@ -35,11 +35,11 @@ function PageContainer({ queryFn, queryKey, hasSubset }: Props) {
     ? splitArrayIntoSubsets(items)[currentPage - 1]
     : items
 
-  if (isLoading) return <LoadingScreen />
   if (isError) return <ErrorView />
 
   return (
     <section className='page-container'>
+      {isLoading ? <LoadingScreen /> : null}
       <SearchWordFilter handleSearchWord={setSearchQuery} />
       {!items.length && isSuccess ? <EmptySearch /> : null}
       {!!items.length ? (

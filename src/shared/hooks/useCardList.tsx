@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
-import { ApiReturn } from '../entities/Items'
+import { ApiReturn } from '../../entities/Items'
 
 interface Props {
   queryFn: (query?: string, currentPage?: number) => Promise<ApiReturn>

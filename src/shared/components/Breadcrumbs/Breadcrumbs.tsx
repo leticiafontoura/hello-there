@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router'
 import { capitalizeFirstChar, splitLocationPathname } from '../../helpers'
 import ChevronRight from '../../../assets/svgs/chevronRight.svg?react'
 import './Breadcrumbs.scss'
-import { Item } from '../../entities/Items'
+import { Item } from '../../../entities/Items'
 import { useEffect, useState } from 'react'
 
 function Breadcrumbs() {

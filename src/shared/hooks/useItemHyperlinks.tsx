@@ -1,18 +1,14 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQueries } from '@tanstack/react-query'
 import { getItemDetails } from '../../api/apiClient'
 
 export function useItemHyperlinks(url: string | Array<string>) {
   const urls = Array.isArray(url) ? url : [url]
 
-  return urls.map((singleUrl) => {
-    const fodase = useQuery({
+  return useQueries({
+    queries: urls.map((singleUrl) => ({
       queryKey: [singleUrl],
-      queryFn: async () => {
-        const response = await getItemDetails(singleUrl)
-        return response
-      },
+      queryFn: async () => getItemDetails(singleUrl),
       enabled: !!singleUrl,
-    })
-    return fodase
+    })),
   })
 }

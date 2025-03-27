@@ -1,4 +1,4 @@
-import { ApiReturn, Item } from '../../shared/entities/Items'
+import { ApiReturn, Item } from '../../entities/Items'
 import { normalizeString } from '../../shared/helpers'
 
 export function getFavorites(query?: string): Promise<ApiReturn> {

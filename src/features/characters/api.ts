@@ -1,5 +1,5 @@
 import { apiClient } from '../../api/apiClient'
-import { ApiReturn } from '../../shared/entities/Items'
+import { ApiReturn } from '../../entities/Items'
 
 export const getCharactersList = async (
   query?: string,

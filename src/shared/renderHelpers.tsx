@@ -5,7 +5,8 @@ interface IHyperlink {
   url: string
 }
 
-export function handleHyperlink(item: Array<IHyperlink>) {
+export function handleHyperlink(item: Array<IHyperlink>, isLoading: boolean) {
+  if (isLoading) return <p>Carregando informações...</p>
   if (item.length) {
     return item.map((it) => (
       <p>

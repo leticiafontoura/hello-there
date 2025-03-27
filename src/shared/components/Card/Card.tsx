@@ -3,10 +3,10 @@ import UnselectedFavoriteIcon from '../../../assets/svgs/favoriteIconOutline.svg
 
 import './Card.scss'
 import { useFavorites } from '../../hooks/useFavorites'
-import { Item } from '../../entities/Items'
+import { Item } from '../../../entities/Items'
 import { NavLink, useLocation } from 'react-router'
 import { getItemId, transformItemJson } from '../../helpers'
-import ItemsList from '../../ui/ItemsList/ItemsList'
+import ItemsList from '../ItemsList/ItemsList'
 
 interface Props {
   cardTitle: string

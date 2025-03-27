@@ -1,12 +1,12 @@
 import { useLocation } from 'react-router'
 import { transformItemJson } from '../../helpers'
-import ItemsList from '../../ui/ItemsList/ItemsList'
+import ItemsList from '../ItemsList/ItemsList'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { Item } from '../../entities/Items'
-import LoadingScreen from '../../ui/LoadingScreen'
+import { Item } from '../../../entities/Items'
+import LoadingScreen from '../../ui/Views/LoadingScreen'
 import './ItemInformation.scss'
 import { getItemDetails } from '../../../api/apiClient'
-import ErrorView from './Error'
+import ErrorView from '../../ui/Views/Error'
 
 interface Props {
   location: string

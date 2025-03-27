@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Item } from '../entities/Items'
+import { Item } from '../../entities/Items'
 
 export function useFavorites(cardTitle: string) {
   const STORAGE_KEY = 'favorites'

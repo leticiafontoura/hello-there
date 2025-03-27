@@ -1,4 +1,4 @@
-import Loader from '../../assets/svgs/favoriteIconOutline.svg?react'
+import Loader from '../../../assets/svgs/favoriteIconOutline.svg?react'
 
 function LoadingScreen() {
   return (
