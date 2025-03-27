@@ -33,6 +33,12 @@
         l.hash
       );
 
+      if (l.search[1] === '/' ) {
+          window.history.replaceState(null, null,
+            window.location.search.split('/').slice(1, -1).join()
+          );
+        }
+
     </script>
   </head>
   <body>
