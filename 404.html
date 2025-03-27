@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=./index.html" />
+    <meta http-equiv="refresh" content="0; url=/hello-there/" />
     <script type="text/javascript">
-      // Manter o caminho após /hello-there/
+      // Esse código verifica a URL e remove a parte "/hello-there"
       const path = window.location.pathname.replace('/hello-there', '');
+      // Redireciona para a base da aplicação sem o "/index.html"
       window.location.replace(`/hello-there${path}`);
     </script>
   </head>
