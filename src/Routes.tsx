@@ -9,7 +9,7 @@ import CharacterInfo from './features/characters/CharacterInfo.tsx'
 function RoutesComponent() {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route path='/hello-there' element={<Home />} />
       <Route path='people' element={<CharactersView />} />
       <Route path='people/:id' element={<CharacterInfo />} />
       <Route path='planets' element={<PlanetsView />} />
