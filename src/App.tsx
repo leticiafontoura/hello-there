@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <BrowserRouter basename="/hello-there">
           <Header />
           <Breadcrumbs />
           <RoutesComponent />
