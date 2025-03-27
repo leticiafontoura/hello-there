@@ -1,17 +1,27 @@
 .main-nav {
-  display: flex;
-  justify-content: space-around;
+  display: block;
   padding: $Spacing-2;
+  .logo-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-menu {
+    display: block;
+  }
   .main-nav-logo {
     &:hover {
       opacity: 0.8;
     }
   }
   ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: calc($c-Padding * 3);
+    display: none;
+    &.nav-open {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
     .main-nav-item {
       display: flex;
       align-items: center;
@@ -43,6 +53,23 @@
           fill: currentColor;
         }
       }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: $Spacing-2;
+    .mobile-menu {
+      display: none;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $Spacing-3;
     }
   }
 }
